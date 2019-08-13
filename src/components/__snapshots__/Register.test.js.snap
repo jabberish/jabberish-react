@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register component renders Register 1`] = `
+<Fragment>
+  <h1>
+    Register
+  </h1>
+  <RegisterForm />
+</Fragment>
+`;
