@@ -1,4 +1,4 @@
-const submitLogin = (user) => {
+const fetchLogin = (user) => {
   return fetch('http://localhost:3000/api/v1/auth/signin', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -34,7 +34,7 @@ const submitVerify = () => {
 };
 
 export {
-  submitLogin,
+  fetchLogin,
   fetchRegister,
   submitVerify
 };
