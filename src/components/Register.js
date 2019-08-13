@@ -1,18 +1,11 @@
 import React from 'react';
+import RegisterForm from './RegisterForm';
 
 const Register = () => {
   return (
     <>
       <h1>Register</h1>
-      <form id="register-form">
-        <label>username:
-          <input id="username" name="username" required />
-        </label>
-        <label>Password:
-          <input id="password" name="password" type="password" required />
-        </label>
-        <button>Submit</button>
-      </form>
+      <RegisterForm />
     </>
   );
 };
