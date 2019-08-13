@@ -13,9 +13,14 @@ exports[`Navigation component renders Navigation 1`] = `
     Landing
   </Link>
   <Link
-    to="/Register"
+    to="/register"
   >
     Register
+  </Link>
+  <Link
+    to="/login"
+  >
+    Login
   </Link>
 </nav>
 `;
