@@ -5,6 +5,8 @@ exports[`Register component renders Register 1`] = `
   <h1>
     Register
   </h1>
-  <RegisterForm />
+  <RegisterForm
+    submitRegister={[Function]}
+  />
 </Fragment>
 `;

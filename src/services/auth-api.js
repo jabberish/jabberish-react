@@ -10,7 +10,7 @@ const submitLogin = (user) => {
     .then(res => res.json());
 };
 
-const submitRegister = (user) => {
+const fetchRegister = (user) => {
   return fetch('http://localhost:3000/api/v1/auth/signup', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -33,6 +33,6 @@ const submitVerify = () => {
 
 export {
   submitLogin,
-  submitRegister,
+  fetchRegister,
   submitVerify
 };
