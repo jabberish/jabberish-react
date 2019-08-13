@@ -1,15 +1,38 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { fetchRegister } from '../services/auth-api';
+
+const formStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+};
+
+const labelStyle = {
+  marginBottom: '10px'
+};
 
 class RegisterForm extends React.Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    registerSuccess: true
   }
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.submitRegister({ username: this.state.username, password: this.state.password });
+    const user = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    fetchRegister(user)
+      .then(res => {
+        if(res._id) {
+          window.location = '/';
+        } else {
+          console.log('please attempt to register under a different name');
+        }
+      });
   };
 
   onUsernameChange = e => {
@@ -22,8 +45,8 @@ class RegisterForm extends React.Component {
 
   render() {
     return (
-      <form id="register-form">
-        <label>username:
+      <form id="register-form" style={formStyle}>
+        <label style={labelStyle}>username:
           <input 
             id="username" 
             name="username" 
@@ -31,7 +54,7 @@ class RegisterForm extends React.Component {
             required 
           />
         </label>
-        <label>Password:
+        <label style={labelStyle}>Password:
           <input 
             id="password" 
             name="password" 
@@ -40,14 +63,10 @@ class RegisterForm extends React.Component {
             required 
           />
         </label>
-        <button onClick={this.onSubmit}>Submit</button>
+        <button onClick={this.onSubmit} style={{ width: '5rem' }}>Submit</button>
       </form>
     );
   }
 }
-
-RegisterForm.propTypes = {
-  submitRegister: PropTypes.func.isRequired
-};
 
 export default RegisterForm;

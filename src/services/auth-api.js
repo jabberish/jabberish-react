@@ -2,6 +2,7 @@ const submitLogin = (user) => {
   return fetch('http://localhost:3000/api/v1/auth/signin', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
     body: JSON.stringify({
       username: user.username,
       password: user.password
@@ -14,6 +15,7 @@ const fetchRegister = (user) => {
   return fetch('http://localhost:3000/api/v1/auth/signup', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
     body: JSON.stringify({
       username: user.username,
       password: user.password
