@@ -30,7 +30,7 @@ class RegisterForm extends React.Component {
         if(res._id) {
           window.location = '/';
         } else {
-          console.log('please attempt to register under a different name');
+          this.setState({ registerSuccess: false });
         }
       });
   };
@@ -63,6 +63,9 @@ class RegisterForm extends React.Component {
             required 
           />
         </label>
+        {!this.state.registerSuccess && (
+          <span>That username is taken. Please try another!</span>
+        )}
         <button onClick={this.onSubmit} style={{ width: '5rem' }}>Submit</button>
       </form>
     );
