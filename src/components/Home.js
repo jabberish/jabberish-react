@@ -2,10 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 
 const Home = ({ username }) => {
-  console.log(username);
-
   if(username === false) {
-    console.log('redirecting');
     return <Redirect to="/landing" />;
   }
 

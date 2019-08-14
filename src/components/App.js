@@ -26,7 +26,6 @@ class App extends React.Component {
   checkAuth() {
     fetchVerify()
       .then(res => {
-        console.log(res);
         if(res._id) {
           this.setState({ username: res.username });
         } else {
