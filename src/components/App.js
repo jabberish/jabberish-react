@@ -15,7 +15,7 @@ import { fetchVerify } from '../services/auth-api';
 
 class App extends React.Component {
   state ={
-    username: null,
+    username: '',
     redirect: false
   }
 
@@ -29,7 +29,7 @@ class App extends React.Component {
         if(res._id) {
           this.setState({ username: res.username });
         } else {
-          this.setState({ username: false });
+          this.setState({ redirect: true });
         }
       });
   }
@@ -37,7 +37,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header />
+        <Header redirect={this.state.redirect}/>
         <Navigation />
         <Switch>
           <Route path="/Login" component={Login}/>
