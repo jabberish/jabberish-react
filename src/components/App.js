@@ -11,17 +11,47 @@ import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 
-export default function App() {
-  return (
-    <Router>
-      <Header />
-      <Navigation />
-      <Switch>
-        <Route path="/Login" component={Login}/>
-        <Route path="/Register" component={Register}/>
-        <Route path="/landing" component={Landing}/>
-        <Route path="/" component={Home}/>
-      </Switch>
-    </Router>
-  );
+import { fetchVerify } from '../services/auth-api';
+
+class App extends React.Component {
+  state ={
+    username: null,
+    redirect: false
+  }
+
+  componentDidMount() {
+    this.checkAuth();
+  }
+
+  checkAuth() {
+    fetchVerify()
+      .then(res => {
+        console.log(res);
+        if(res._id) {
+          this.setState({ username: res.username });
+        } else {
+          this.setState({ username: false });
+        }
+      });
+  }
+  
+  render() {
+    return (
+      <Router>
+        <Header />
+        <Navigation />
+        <Switch>
+          <Route path="/Login" component={Login}/>
+          <Route path="/Register" component={Register}/>
+          <Route path="/landing" component={Landing}/>
+          <Route 
+            path="/"
+            render={(props) => <Home {...props} username={this.state.username}/>}
+          />
+        </Switch>
+      </Router>
+    );
+  }
 }
+
+export default App;

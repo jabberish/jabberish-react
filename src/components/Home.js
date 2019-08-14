@@ -1,15 +1,15 @@
 import React from 'react';
-import { fetchVerify } from '../services/auth-api';
+import { Redirect } from 'react-router';
 
-const Home = () => {
+const Home = ({ username }) => {
+  console.log(username);
 
-  fetchVerify()
-    .then(res => {
-      if(!res._id) window.location = '/landing';
-      
-    });
+  if(username === false) {
+    console.log('redirecting');
+    return <Redirect to="/landing" />;
+  }
 
-  return <h2>Home</h2>;
+  return (username && <h2>Home</h2>);
 };
 
 export default Home;
