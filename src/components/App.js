@@ -45,10 +45,7 @@ class App extends React.Component {
           <Route path="/Register" component={Register}/>
           <Route path="/landing" component={Landing}/>
           <Route path="/workspace" component={Workspace}/>
-          <Route 
-            path="/"
-            render={(props) => <Home {...props} username={this.state.username}/>}
-          />
+          <Route path="/" component={Home}/>
         </Switch>
       </Router>
     );
