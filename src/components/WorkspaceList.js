@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WorkspaceItem from './WorkspaceItem';
 
 const WorkspaceList = ({ workspaces }) => {
   const workspaceList = workspaces.map((workspace, i) => {
-    return <li key={i}>{workspace.workspace.name}</li>;
+    return <WorkspaceItem key={i} workspace={workspace} />;
   });
 
   return (
