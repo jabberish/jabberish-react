@@ -15,7 +15,7 @@ import Workspace from './Workspace';
 import { fetchVerify } from '../services/auth-api';
 
 class App extends React.Component {
-  state ={
+  state = {
     username: '',
     redirect: false
   }
