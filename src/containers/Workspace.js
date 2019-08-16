@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import ChannelList from '../components/Workspace/ChannelList';
 import Chat from '../components/Workspace/Chat';
 
+import styles from './Workspace.css';
+
 import { fetchWorkspaceChannels } from '../services/channel-api';
 
 // eslint-disable-next-line no-undef
@@ -52,8 +54,10 @@ class Workspace extends React.Component {
     return (
       <>
         <h2>Workspace</h2>
-        <ChannelList channels={channels} selectChannel={this.selectChannel} />
-        <Chat messagesData={messagesData} />
+        <section className={styles.Workspace}>
+          <ChannelList channels={channels} selectChannel={this.selectChannel} />
+          <Chat messagesData={messagesData} />
+        </section>
       </>
     );
   }
