@@ -37,7 +37,9 @@ class Workspace extends React.Component {
   }
 
   selectChannel = channel => {
-    socket.removeListener('history', 'chat message');
+    socket.removeListener('history');
+    socket.removeListener('chat message');
+    
     socket.emit('leave', this.state.currentChannel);
     this.setState({ currentChannel: channel._id });
     socket.emit('join', { 
@@ -45,6 +47,7 @@ class Workspace extends React.Component {
       workspace: this.state.currentWorkspace, 
       user: this.props.userId
     });
+
     socket.on('history', (msgs) => {
       this.setState({ messagesData: msgs });
     });
@@ -62,6 +65,7 @@ class Workspace extends React.Component {
       user: this.props.userId, 
       workspace: currentWorkspace
     });
+    this.setState({ messageInput: '' });
   };
 
   onUpdateMessageInput = e => {
@@ -69,14 +73,15 @@ class Workspace extends React.Component {
   }
 
   render() {
-    const { channels, messagesData } = this.state;
+    const { channels, messagesData, messageInput } = this.state;
     return (
       <section className={styles.Workspace}>
         <ChannelList channels={channels} selectChannel={this.selectChannel} />
         <Chat 
           messagesData={messagesData} 
           onSubmitMessage={this.onSubmitMessage} 
-          onUpdateMessageInput={this.onUpdateMessageInput} 
+          onUpdateMessageInput={this.onUpdateMessageInput}
+          messageInput={messageInput} 
         />
       </section>
     );

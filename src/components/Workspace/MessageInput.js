@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MessageInput = ({ onSubmitMessage, onUpdateMessageInput }) => {
+const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) => {
 
   return (
     <form onSubmit={onSubmitMessage}>
-      <input onChange={onUpdateMessageInput} autoComplete="off" />
+      <input onChange={onUpdateMessageInput} value={messageInput} autoComplete="off" />
       <button>Send</button>
     </form>
   );
@@ -13,7 +13,8 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput }) => {
 
 MessageInput.propTypes = {
   onSubmitMessage: PropTypes.func.isRequired,
-  onUpdateMessageInput: PropTypes.func.isRequired
+  onUpdateMessageInput: PropTypes.func.isRequired,
+  messageInput: PropTypes.string.isRequired
 };
 
 export default MessageInput;
