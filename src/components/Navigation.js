@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import styles from './Navigation.css';
+
 const Navigation = () => {
   return (
-    <nav>
-      <Link to='/'>Home</Link>
-      <Link to='/landing'>Landing</Link>
-      <Link to='/workspace'>Workspace</Link>
-      <Link to='/register'>Register</Link>
-      <Link to='/login'>Login</Link>
+    <nav className={styles.Navigation}>
+      <Link className={styles.Link} to='/'>Home</Link>
+      <Link className={styles.Link} to='/register'>Register</Link>
+      <Link className={styles.Link} to='/login'>Login</Link>
     </nav>
   );
 };
