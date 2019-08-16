@@ -21,7 +21,8 @@ class Workspace extends React.Component {
     channels: [],
     currentChannel: '',
     currentWorkspace: '',
-    messagesData: []
+    messagesData: [],
+    messageInput: '',
   }
 
   componentDidMount() {
@@ -49,12 +50,32 @@ class Workspace extends React.Component {
     });
   }
 
+  onSubmitMessage = e => {
+    e.preventDefault();
+    const { currentChannel, currentWorkspace, messageInput } = this.state;
+    socket.emit('chat message', { 
+      channel: currentChannel, 
+      message: messageInput, 
+      user: this.props.userId, 
+      workspace: currentWorkspace
+    });
+
+  };
+
+  onUpdateMessageInput = e => {
+    this.setState({ messageInput: e.target.value });
+  }
+
   render() {
     const { channels, messagesData } = this.state;
     return (
       <section className={styles.Workspace}>
         <ChannelList channels={channels} selectChannel={this.selectChannel} />
-        <Chat messagesData={messagesData} />
+        <Chat 
+          messagesData={messagesData} 
+          onSubmitMessage={this.onSubmitMessage} 
+          onUpdateMessageInput={this.onUpdateMessageInput} 
+        />
       </section>
     );
   }
