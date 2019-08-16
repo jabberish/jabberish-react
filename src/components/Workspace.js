@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ChannelList from './ChannelList';
 
-import hashStorage from '../utils/hash-storage.js';
 import { fetchWorkspaceChannels } from '../services/channel-api';
 
 // eslint-disable-next-line no-undef
@@ -9,29 +9,40 @@ import { fetchWorkspaceChannels } from '../services/channel-api';
 
 class Workspace extends React.Component {
   state = {
-    channels: []
+    channels: [],
+    currentChannel: '',
+    currentWorkspace: ''
   }
 
   componentDidMount() {
-    const workspaceId = hashStorage.get().workspace;
-    
-    fetchWorkspaceChannels(workspaceId)
+    const { currentWorkspace } = this.props;
+    this.setState({ currentWorkspace });
+    fetchWorkspaceChannels(currentWorkspace)
       .then(channels => {
+        console.log(channels);
         if(channels.length) {
           this.setState({ channels: channels });
         }
       });
   }
 
+  selectChannel = channel => {
+    this.setState({ currentChannel: channel._id });
+  }
+
   render() {
     return (
       <>
         <h2>Workspace</h2>
-        <ChannelList channels={this.state.channels} />
+        <ChannelList channels={this.state.channels} selectChannel={this.selectChannel} />
       </>
     );
   }
   
 }
+
+Workspace.propTypes = {
+  currentWorkspace: PropTypes.string.isRequired
+};
 
 export default Workspace;

@@ -17,7 +17,8 @@ import { fetchVerify } from '../services/auth-api';
 class App extends React.Component {
   state = {
     username: '',
-    redirect: false
+    redirect: false,
+    currentWorkspace: ''
   }
 
   componentDidMount() {
@@ -34,18 +35,29 @@ class App extends React.Component {
         }
       });
   }
+
+  updateWorkspace = (workspaceId) => {
+    this.setState({ currentWorkspace: workspaceId });
+  }
   
   render() {
+    const { currentWorkspace, redirect } = this.state;
     return (
       <Router>
-        <Header redirect={this.state.redirect}/>
+        <Header redirect={redirect}/>
         <Navigation />
         <Switch>
           <Route path="/Login" component={Login}/>
           <Route path="/Register" component={Register}/>
           <Route path="/landing" component={Landing}/>
-          <Route path="/workspace" component={Workspace}/>
-          <Route path="/" component={Home}/>
+          <Route 
+            path="/workspace"   
+            render={(props) => <Workspace {...props} currentWorkspace={currentWorkspace} />}
+          />
+          <Route 
+            path="/" 
+            render={(props) => <Home {...props} updateWorkspace={this.updateWorkspace} />}
+          />
         </Switch>
       </Router>
     );

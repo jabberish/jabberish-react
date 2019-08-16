@@ -2,11 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChannelItem from './ChannelItem';
 
-const ChannelList = ({ channels }) => {
+const ChannelList = ({ channels, selectChannel }) => {
 
   const channelItems = channels.map(channel => {
-    return <ChannelItem key={`${channel._id}-${channel.name}`} channel={channel} />;
+    return (
+      <ChannelItem 
+        key={`${channel._id}-${channel.name}`} 
+        channel={channel} 
+        selectChannel={selectChannel}
+      />
+    );
   });
+  
   return (
     <ul>
       Channel List
@@ -16,7 +23,8 @@ const ChannelList = ({ channels }) => {
 };
 
 ChannelList.propTypes = {
-  channels: PropTypes.array.isRequired
+  channels: PropTypes.array.isRequired,
+  selectChannel: PropTypes.func.isRequired
 };
 
 export default ChannelList;
