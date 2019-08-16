@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header component renders Header 1`] = `
-<h1>
-  Jabberish
-</h1>
+<section
+  className="Header"
+>
+  <h1>
+    Jabberish
+  </h1>
+  <Navigation />
+</section>
 `;
