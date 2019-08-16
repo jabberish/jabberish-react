@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WorkspaceList from './WorkspaceList';
-import { fetchMemberWorkspaces } from '../services/workspace-api';
+import { fetchMemberWorkspaces } from '../../services/workspace-api';
 
 class Home extends React.Component {
   state = {

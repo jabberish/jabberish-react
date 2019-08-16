@@ -7,10 +7,10 @@ import {
 import Header from './Header';
 import Navigation from './Navigation';
 import Landing from './Landing';
-import Home from './Home';
+import Home from './Home/Home';
 import Register from './Register';
 import Login from './Login';
-import Workspace from './Workspace';
+import Workspace from './Workspace/Workspace';
 
 import { fetchVerify } from '../services/auth-api';
 
