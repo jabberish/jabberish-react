@@ -17,6 +17,7 @@ import { fetchVerify } from '../services/auth-api';
 class App extends React.Component {
   state = {
     username: '',
+    userId: '',
     redirect: false,
     currentWorkspace: ''
   }
@@ -29,7 +30,7 @@ class App extends React.Component {
     fetchVerify()
       .then(res => {
         if(res._id) {
-          this.setState({ username: res.username });
+          this.setState({ username: res.username, userId: res._id });
         } else {
           this.setState({ redirect: true });
         }
@@ -41,7 +42,7 @@ class App extends React.Component {
   }
   
   render() {
-    const { currentWorkspace, redirect } = this.state;
+    const { currentWorkspace, userId, redirect } = this.state;
     return (
       <Router>
         <Header redirect={redirect}/>
@@ -52,7 +53,11 @@ class App extends React.Component {
           <Route path="/landing" component={Landing}/>
           <Route 
             path="/workspace"   
-            render={(props) => <Workspace {...props} currentWorkspace={currentWorkspace} />}
+            render={(props) => <Workspace 
+              {...props} 
+              currentWorkspace={currentWorkspace} 
+              userId={userId} 
+            />}
           />
           <Route 
             path="/" 
