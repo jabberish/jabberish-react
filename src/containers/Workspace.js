@@ -37,7 +37,7 @@ class Workspace extends React.Component {
   }
 
   selectChannel = channel => {
-    socket.removeListener('history');
+    socket.removeListener('history', 'chat message');
     socket.emit('leave', this.state.currentChannel);
     this.setState({ currentChannel: channel._id });
     socket.emit('join', { 
@@ -47,6 +47,9 @@ class Workspace extends React.Component {
     });
     socket.on('history', (msgs) => {
       this.setState({ messagesData: msgs });
+    });
+    socket.on('chat message', (msg) => {
+      this.setState(state => ({ messagesData: [...state.messagesData, msg] }));
     });
   }
 
@@ -59,7 +62,6 @@ class Workspace extends React.Component {
       user: this.props.userId, 
       workspace: currentWorkspace
     });
-
   };
 
   onUpdateMessageInput = e => {
