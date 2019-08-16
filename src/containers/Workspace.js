@@ -30,8 +30,8 @@ class Workspace extends React.Component {
 
   selectChannel = channel => {
     socket.removeListener('history');
+    socket.emit('leave', this.state.currentChannel);
     this.setState({ currentChannel: channel._id });
-    socket.emit('leave', channel._id);
     socket.emit('join', { 
       channel: channel._id, 
       workspace: this.state.currentWorkspace, 
