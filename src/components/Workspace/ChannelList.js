@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChannelItem from './ChannelItem';
 
+import styles from './ChannelList.css';
+
 const ChannelList = ({ channels, selectChannel }) => {
 
   const channelItems = channels.map(channel => {
@@ -15,7 +17,7 @@ const ChannelList = ({ channels, selectChannel }) => {
   });
   
   return (
-    <ul>
+    <ul className={styles.ChannelList}>
       Channel List
       {channelItems}
     </ul>

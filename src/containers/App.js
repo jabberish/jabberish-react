@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Landing from '../components/Landing';
@@ -11,6 +12,8 @@ import Home from './Home';
 import Register from '../components/Register';
 import Login from '../components/Login';
 import Workspace from './Workspace';
+
+import 'normalize.css';
 
 import { fetchVerify } from '../services/auth-api';
 
