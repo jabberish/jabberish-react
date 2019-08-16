@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ChannelList from './ChannelList';
-import Chat from './Chat';
+import ChannelList from '../components/Workspace/ChannelList';
+import Chat from '../components/Workspace/Chat';
 
-import { fetchWorkspaceChannels } from '../../services/channel-api';
+import { fetchWorkspaceChannels } from '../services/channel-api';
 
 // eslint-disable-next-line no-undef
 const socket = io('http://localhost:3000');

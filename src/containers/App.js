@@ -4,13 +4,13 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import Header from './Header';
-import Navigation from './Navigation';
-import Landing from './Landing';
-import Home from './Home/Home';
-import Register from './Register';
-import Login from './Login';
-import Workspace from './Workspace/Workspace';
+import Header from '../components/Header';
+import Navigation from '../components/Navigation';
+import Landing from '../components/Landing';
+import Home from './Home';
+import Register from '../components/Register';
+import Login from '../components/Login';
+import Workspace from './Workspace';
 
 import { fetchVerify } from '../services/auth-api';
 
