@@ -52,13 +52,10 @@ class Workspace extends React.Component {
   render() {
     const { channels, messagesData } = this.state;
     return (
-      <>
-        <h2>Workspace</h2>
-        <section className={styles.Workspace}>
-          <ChannelList channels={channels} selectChannel={this.selectChannel} />
-          <Chat messagesData={messagesData} />
-        </section>
-      </>
+      <section className={styles.Workspace}>
+        <ChannelList channels={channels} selectChannel={this.selectChannel} />
+        <Chat messagesData={messagesData} />
+      </section>
     );
   }
   
