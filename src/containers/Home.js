@@ -4,6 +4,10 @@ import WorkspaceList from '../components/Home/WorkspaceList';
 import { fetchMemberWorkspaces } from '../services/workspace-api';
 
 class Home extends React.Component {
+  static propTypes = {
+    updateWorkspace: PropTypes.func.isRequired
+  };
+  
   state = {
     workspaces: []
   }
@@ -29,9 +33,5 @@ class Home extends React.Component {
     );
   }
 }
-
-Home.propTypes = {
-  updateWorkspace: PropTypes.func.isRequired
-};
 
 export default Home;

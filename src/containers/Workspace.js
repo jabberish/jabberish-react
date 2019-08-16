@@ -10,6 +10,11 @@ import { fetchWorkspaceChannels } from '../services/channel-api';
 const socket = io('http://localhost:3000');
 
 class Workspace extends React.Component {
+  static propTypes = {
+    currentWorkspace: PropTypes.string.isRequired,
+    userId: PropTypes.string.isRequired
+  };
+  
   state = {
     channels: [],
     currentChannel: '',
@@ -54,10 +59,5 @@ class Workspace extends React.Component {
   }
   
 }
-
-Workspace.propTypes = {
-  currentWorkspace: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired
-};
 
 export default Workspace;
