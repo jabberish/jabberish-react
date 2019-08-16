@@ -19,7 +19,6 @@ class Workspace extends React.Component {
     this.setState({ currentWorkspace });
     fetchWorkspaceChannels(currentWorkspace)
       .then(channels => {
-        console.log(channels);
         if(channels.length) {
           this.setState({ channels: channels });
         }

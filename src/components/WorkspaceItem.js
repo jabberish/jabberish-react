@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const WorkspaceItem = ({ workspace, updateWorkspace }) => {
-  console.log(workspace);
   return (
     <li>
       <Link to="./workspace" onClick={() => updateWorkspace(workspace._id)}>
