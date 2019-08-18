@@ -2,19 +2,18 @@
 
 exports[`Header component renders Header 1`] = `
 <WithStyles(ForwardRef(AppBar))
-  className="Header"
+  className="makeStyles-appBar-1"
   position="sticky"
 >
   <WithStyles(ForwardRef(Toolbar))>
     <WithStyles(ForwardRef(IconButton))
-      aria-lable="menu"
       color="inherit"
       edge="start"
     >
       <MenuIcon />
     </WithStyles(ForwardRef(IconButton))>
     <WithStyles(ForwardRef(Typography))
-      className="Title"
+      className="makeStyles-title-2"
       variant="h6"
     >
       Jabberish
