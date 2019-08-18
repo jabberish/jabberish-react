@@ -23,7 +23,7 @@ Chat.propTypes = {
   messagesData: PropTypes.array.isRequired,
   onSubmitMessage: PropTypes.func.isRequired,
   onUpdateMessageInput: PropTypes.func.isRequired,
-  messageInput: PropTypes.func.isRequired
+  messageInput: PropTypes.string.isRequired
 };
 
 export default Chat;
