@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Typography from '@material-ui/core/Typography';
+
 import Navigation from './Navigation';
 
 import styles from './Header.css';
@@ -7,7 +9,7 @@ import styles from './Header.css';
 const Header = () => {
   return (
     <section className={styles.Header}>
-      <h1>Jabberish</h1>
+      <Typography variant="h5">Jabberish</Typography>
       <Navigation />
     </section>
   );
