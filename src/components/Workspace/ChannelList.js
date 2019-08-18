@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ChannelList.css';
 import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
   },
-
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
+  drawer: {
+    width: '220px'
+  },
+  drawerPaper: {
+    width: '220px'
   },
   toolbar: theme.mixins.toolbar,
 }));
@@ -26,7 +23,13 @@ const ChannelList = ({ channels, selectChannel }) => {
   const classes = useStyles();
   
   return (
-    <Drawer variant="permanent" className={styles.ChannelList}>
+    <Drawer 
+      variant="permanent" 
+      className={classes.drawer}
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
       <div className={classes.toolbar} />
 
       Channels

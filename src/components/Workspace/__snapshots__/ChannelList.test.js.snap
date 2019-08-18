@@ -2,7 +2,12 @@
 
 exports[`ChannelList component renders ChannelList 1`] = `
 <WithStyles(ForwardRef(Drawer))
-  className="ChannelList"
+  className="makeStyles-drawer-2"
+  classes={
+    Object {
+      "paper": "makeStyles-drawerPaper-3",
+    }
+  }
   variant="permanent"
 >
   <div
