@@ -13,6 +13,7 @@ exports[`Header component renders Header 1`] = `
       <MenuIcon />
     </WithStyles(ForwardRef(IconButton))>
     <WithStyles(ForwardRef(Typography))
+      className="Title"
       variant="h6"
     >
       Jabberish
