@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat component renders Chat 1`] = `
+<section>
+  <ul />
+  <MessageInput
+    messageInput=""
+    onSubmitMessage={[Function]}
+    onUpdateMessageInput={[Function]}
+  />
+</section>
+`;
