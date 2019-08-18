@@ -4,9 +4,11 @@ exports[`Header component renders Header 1`] = `
 <section
   className="Header"
 >
-  <h1>
+  <WithStyles(ForwardRef(Typography))
+    variant="h5"
+  >
     Jabberish
-  </h1>
+  </WithStyles(ForwardRef(Typography))>
   <Navigation />
 </section>
 `;
