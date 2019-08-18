@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChannelList component renders ChannelList 1`] = `
+<WithStyles(ForwardRef(Drawer))
+  className="ChannelList"
+  variant="permanent"
+>
+  <div
+    className="makeStyles-toolbar-4"
+  />
+  Channels
+  <WithStyles(ForwardRef(List)) />
+</WithStyles(ForwardRef(Drawer))>
+`;
