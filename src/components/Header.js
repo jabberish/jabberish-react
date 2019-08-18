@@ -14,7 +14,7 @@ const Header = () => {
         <IconButton edge="start" color="inherit" aria-lable="menu">
           <MenuIcon></MenuIcon>
         </IconButton>
-        <Typography variant="h6">
+        <Typography className={styles.Title} variant="h6">
           Jabberish
         </Typography>
         <Navigation/>
