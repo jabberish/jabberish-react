@@ -1,14 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header component renders Header 1`] = `
-<section
+<WithStyles(ForwardRef(AppBar))
   className="Header"
 >
-  <WithStyles(ForwardRef(Typography))
-    variant="h5"
-  >
-    Jabberish
-  </WithStyles(ForwardRef(Typography))>
-  <Navigation />
-</section>
+  <WithStyles(ForwardRef(Toolbar))>
+    <WithStyles(ForwardRef(IconButton))
+      aria-lable="menu"
+      color="inherit"
+      edge="start"
+    >
+      <MenuIcon />
+    </WithStyles(ForwardRef(IconButton))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h6"
+    >
+      Jabberish
+    </WithStyles(ForwardRef(Typography))>
+    <Navigation />
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
 `;

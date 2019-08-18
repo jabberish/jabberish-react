@@ -4,23 +4,35 @@ exports[`Navigation component renders Navigation 1`] = `
 <nav
   className="Navigation"
 >
-  <Link
-    className="Link"
-    to="/"
+  <WithStyles(ForwardRef(Button))
+    color="inherit"
   >
-    Home
-  </Link>
-  <Link
-    className="Link"
-    to="/register"
+    <Link
+      className="Link"
+      to="/"
+    >
+      Home
+    </Link>
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    color="inherit"
   >
-    Register
-  </Link>
-  <Link
-    className="Link"
-    to="/login"
+    <Link
+      className="Link"
+      to="/register"
+    >
+      Register
+    </Link>
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    color="inherit"
   >
-    Login
-  </Link>
+    <Link
+      className="Link"
+      to="/login"
+    >
+      Login
+    </Link>
+  </WithStyles(ForwardRef(Button))>
 </nav>
 `;
