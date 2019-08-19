@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MessageInput from './MessageInput';
+import Messages from './Messages';
 
 const Chat = ({ messagesData, onSubmitMessage, onUpdateMessageInput, messageInput }) => {
-  const messages = messagesData.map(message => (
-    <li key={message._id}>{message.text}</li>
-  ));
-
   return (
     <section>
-      <ul>{messages}</ul>
+      <Messages messagesData={messagesData} />
       <MessageInput 
         onSubmitMessage={onSubmitMessage} 
         onUpdateMessageInput={onUpdateMessageInput} 
