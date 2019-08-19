@@ -25,7 +25,13 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
   return (
     <Paper className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Input className={classes.input} placeholder="Message" onChange={onUpdateMessageInput} value={messageInput} autoComplete="off" />
+        <Input 
+          className={classes.input} 
+          placeholder="Message" 
+          onChange={onUpdateMessageInput} 
+          value={messageInput} 
+          autoComplete="off" 
+        />
         <Button onClick={onSubmitMessage}>Send</Button>
       </Toolbar>
     </Paper>
