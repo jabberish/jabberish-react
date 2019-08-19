@@ -12,6 +12,9 @@ const useStyles = makeStyles(() => ({
   },
   toolbar: {
     height: '50px'
+  },
+  input: {
+    flexGrow: 1
   }
 }));
 
@@ -22,7 +25,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
   return (
     <Paper className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Input onChange={onUpdateMessageInput} value={messageInput} autoComplete="off" />
+        <Input className={classes.input} placeholder="Message" onChange={onUpdateMessageInput} value={messageInput} autoComplete="off" />
         <Button onClick={onSubmitMessage}>Send</Button>
       </Toolbar>
     </Paper>
