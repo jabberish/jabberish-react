@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar className={classes.appBar} position='sticky'>
+    <AppBar className={classes.appBar}>
       <Toolbar>
         <Typography className={classes.title} variant="h6">
           Jabberish

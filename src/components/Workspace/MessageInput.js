@@ -5,10 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   appBar: {
-    position: 'fixed',
-    top: 'auto',
-    bottom: 0,
-    width: 'calc(100% - 220px)',
+    // position: 'fixed',
+    // top: 'auto',
+    // bottom: 0,
+    // width: 'calc(100% - 220px)',
+    width: '100%'
   },
   input: {
     flexGrow: 1

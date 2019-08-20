@@ -9,10 +9,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: '100%',
+    overflowY: 'scroll',
+    height: '100%'
+  },
+  list: {
+    height: '100%'
   },
   toolbar: theme.mixins.toolbar,
 }));
@@ -21,12 +22,11 @@ const Messages = ({ messagesData }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.paper}>
-      <List>
+      <List className={classes.list}>
         {messagesData.map(messageData => (
           <Message key={messageData._id} messageData={messageData} />
         ))}
       </List>
-      <div className={classes.toolbar} />
     </Paper>
   );
 };
