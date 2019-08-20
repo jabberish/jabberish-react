@@ -1,8 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chat component renders Chat 1`] = `
-<section>
-  <ul />
+<section
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <Messages
+    messagesData={Array []}
+  />
   <MessageInput
     messageInput=""
     onSubmitMessage={[Function]}

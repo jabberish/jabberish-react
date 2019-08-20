@@ -5,7 +5,7 @@ import Messages from './Messages';
 
 const Chat = ({ messagesData, onSubmitMessage, onUpdateMessageInput, messageInput }) => {
   return (
-    <section>
+    <section style={{ width: '100%' }}>
       <Messages messagesData={messagesData} />
       <MessageInput 
         onSubmitMessage={onSubmitMessage} 
