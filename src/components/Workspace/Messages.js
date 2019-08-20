@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Message from './Message';
 
-import { List, Paper } from '@material-ui/core';
+import { List, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles(theme => ({
-  paper: {
+  container: {
     overflowY: 'scroll',
     height: '100%'
   },
@@ -23,13 +23,13 @@ const useStyles = makeStyles(theme => ({
 const Messages = ({ messagesData }) => {
   const classes = useStyles();
   return (
-    <Paper className={classes.paper}>
+    <Container maxWidth="lx" className={classes.container}>
       <List className={classes.list}>
         {messagesData.map((messageData, i) => (
           <Message key={messageData._id} i={i} messageData={messageData} />
         ))}
       </List>
-    </Paper>
+    </Container>
   );
 };
 
