@@ -2,8 +2,7 @@ import React from 'react';
 
 import Navigation from './Navigation';
 
-import { Toolbar, AppBar, IconButton, Typography } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Toolbar, AppBar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -21,9 +20,6 @@ const Header = () => {
   return (
     <AppBar className={classes.appBar} position='sticky'>
       <Toolbar>
-        <IconButton edge="start" color="inherit">
-          <MenuIcon></MenuIcon>
-        </IconButton>
         <Typography className={classes.title} variant="h6">
           Jabberish
         </Typography>
