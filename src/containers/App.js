@@ -13,7 +13,6 @@ import Login from '../components/Login';
 import Workspace from './Workspace';
 
 import 'normalize.css';
-import './App.css';
 
 import { fetchVerify } from '../services/auth-api';
 
