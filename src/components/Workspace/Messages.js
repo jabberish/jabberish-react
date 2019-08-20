@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Message from './Message';
+
 import { List, Paper, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -19,16 +22,11 @@ const useStyles = makeStyles(theme => ({
 
 const Messages = ({ messagesData }) => {
   const classes = useStyles();
-
   return (
     <Paper className={classes.paper}>
       <List>
         {messagesData.map(messageData => (
-          <React.Fragment key={messageData._id}>
-            <ListItem>
-              <Typography variant="body1">{messageData.text}</Typography>
-            </ListItem>
-          </React.Fragment>
+          <Message key={messageData._id} messageData={messageData} />
         ))}
       </List>
       <div className={classes.toolbar} />
