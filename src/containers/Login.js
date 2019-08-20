@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginForm from '../containers/LoginForm';
+import LoginForm from '../components/LoginForm';
 
 import { fetchLogin } from '../services/auth-api';
 

@@ -4,10 +4,17 @@ exports[`Chat component renders Chat 1`] = `
 <section
   style={
     Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "justifyContent": "flex-end",
       "width": "100%",
     }
   }
 >
+  <div
+    className="makeStyles-toolbar-1"
+  />
   <Messages
     messagesData={Array []}
   />
