@@ -10,7 +10,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     height: '100%',
     width: '100%',
-    position: 'fixed'
+  },
+  list: {
+    flexGrow: 1
   },
   toolbar: theme.mixins.toolbar,
 }));
