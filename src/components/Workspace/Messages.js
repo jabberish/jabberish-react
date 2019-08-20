@@ -8,6 +8,9 @@ const useStyles = makeStyles(theme => ({
   paper: {
     display: 'flex',
     flexDirection: 'column',
+    height: '100%',
+    width: '100%',
+    position: 'fixed'
   },
   toolbar: theme.mixins.toolbar,
 }));
