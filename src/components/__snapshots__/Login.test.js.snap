@@ -5,6 +5,10 @@ exports[`Login component renders Login 1`] = `
   <h1>
     Login
   </h1>
-  <LoginForm />
+  <LoginForm
+    handleSubmit={[Function]}
+    handleUpdate={[Function]}
+    loginSuccess={true}
+  />
 </Fragment>
 `;
