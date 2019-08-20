@@ -25,6 +25,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
           onChange={onUpdateMessageInput} 
           value={messageInput} 
           autoComplete="off" 
+          multiline
         />
         <Button onClick={onSubmitMessage}>Send</Button>
       </Toolbar>
