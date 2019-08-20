@@ -14,9 +14,6 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     width: '100%',
   },
-  list: {
-    flexGrow: 1
-  },
   toolbar: theme.mixins.toolbar,
 }));
 
