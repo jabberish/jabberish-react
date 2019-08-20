@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 const Messages = ({ messagesData }) => {
   const classes = useStyles();
   return (
-    <Container maxWidth="lx" className={classes.container}>
+    <Container maxWidth="xl" className={classes.container}>
       <List className={classes.list}>
         {messagesData.map((messageData, i) => (
           <Message key={messageData._id} i={i} messageData={messageData} />

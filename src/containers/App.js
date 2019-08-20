@@ -9,7 +9,7 @@ import Header from '../components/Header';
 import Landing from '../components/Landing';
 import Home from './Home';
 import Register from '../components/Register';
-import Login from '../components/Login';
+import Login from './Login';
 import Workspace from './Workspace';
 
 import 'normalize.css';

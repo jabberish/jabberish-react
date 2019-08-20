@@ -17,7 +17,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
   const classes = useStyles();
 
   return (
-    <Container maxWidth="lx" className={classes.container}>
+    <Container maxWidth="xl" className={classes.container}>
       <Toolbar>
         <Input 
           className={classes.input} 
