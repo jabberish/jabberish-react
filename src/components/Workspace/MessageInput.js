@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Toolbar, Input, Button, AppBar } from '@material-ui/core';
+import { Toolbar, Paper, Input, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -20,7 +20,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.appBar} color="inherit">
+    <Paper className={classes.appBar}>
       <Toolbar>
         <Input 
           className={classes.input} 
@@ -31,7 +31,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
         />
         <Button onClick={onSubmitMessage}>Send</Button>
       </Toolbar>
-    </AppBar>
+    </Paper>
   );
 };
 
