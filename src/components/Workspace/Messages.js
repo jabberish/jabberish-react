@@ -13,7 +13,9 @@ const useStyles = makeStyles(theme => ({
     height: '100%'
   },
   list: {
-    height: '100%'
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column'
   },
   toolbar: theme.mixins.toolbar,
 }));
@@ -23,8 +25,8 @@ const Messages = ({ messagesData }) => {
   return (
     <Paper className={classes.paper}>
       <List className={classes.list}>
-        {messagesData.map(messageData => (
-          <Message key={messageData._id} messageData={messageData} />
+        {messagesData.map((messageData, i) => (
+          <Message key={messageData._id} i={i} messageData={messageData} />
         ))}
       </List>
     </Paper>
