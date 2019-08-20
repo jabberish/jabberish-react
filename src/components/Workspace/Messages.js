@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Message from './Message';
 
-import { List, Paper, ListItem, Typography } from '@material-ui/core';
+import { List, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
