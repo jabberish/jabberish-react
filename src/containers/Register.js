@@ -2,14 +2,14 @@ import React from 'react';
 
 import AuthForm from '../components/AuthForm';
 
-import { fetchLogin } from '../services/auth-api';
+import { fetchRegister } from '../services/auth-api';
 
-class Login extends React.Component {
+class Register extends React.Component {
   state = {
     username: '',
     password: '',
-    loginSuccess: true,
-    failMessage: 'Incorrect username or password!'
+    registerSuccess: true,
+    failMessage: 'That username is taken. Please try another!'
   }
 
   handleSubmit = e => {
@@ -19,12 +19,12 @@ class Login extends React.Component {
       password: this.state.password
     };
 
-    fetchLogin(user)
+    fetchRegister(user)
       .then(res => {
         if(res._id) {
           window.location = '/';
         } else {
-          this.setState({ loginSuccess: false });
+          this.setState({ registerSuccess: false });
         }
       });
   };
@@ -32,16 +32,16 @@ class Login extends React.Component {
   handleUpdate = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
-  
+
   render() {
     return (
       <>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <AuthForm 
-          formTitle="Login"
+          formTitle="Register"
           handleSubmit={this.handleSubmit}
           handleUpdate={this.handleUpdate}
-          success={this.state.loginSuccess}
+          success={this.state.registerSuccess}
           failMessage={this.state.failMessage}
         />
       </>
@@ -49,4 +49,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Register;

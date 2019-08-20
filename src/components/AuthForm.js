@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const LoginForm = ({ handleSubmit, handleUpdate, loginSuccess }) => {
+const AuthForm = ({ formTitle, handleSubmit, handleUpdate, success, failMessage }) => {
   const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
@@ -40,7 +40,7 @@ const LoginForm = ({ handleSubmit, handleUpdate, loginSuccess }) => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Login
+          {formTitle}
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -77,8 +77,8 @@ const LoginForm = ({ handleSubmit, handleUpdate, loginSuccess }) => {
           >
             Sign In
           </Button>
-          {!loginSuccess && (
-            <span>Incorrect username or password!</span>
+          {!success && (
+            <span>{failMessage}</span>
           )}
         </form>
       </div>
@@ -86,10 +86,12 @@ const LoginForm = ({ handleSubmit, handleUpdate, loginSuccess }) => {
   );
 };
 
-LoginForm.propTypes = {
+AuthForm.propTypes = {
+  formTitle: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleUpdate: PropTypes.func.isRequired,
-  loginSuccess: PropTypes.bool.isRequired
+  success: PropTypes.bool.isRequired,
+  failMessage: PropTypes.string.isRequired
 };
 
-export default LoginForm;
+export default AuthForm;

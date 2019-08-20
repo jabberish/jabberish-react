@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login component renders Login 1`] = `
+exports[`Register component renders Register 1`] = `
 <Fragment>
   <h1>
-    Login
+    Register
   </h1>
   <AuthForm
-    failMessage="Incorrect username or password!"
-    formTitle="Login"
+    failMessage="That username is taken. Please try another!"
+    formTitle="Register"
     handleSubmit={[Function]}
     handleUpdate={[Function]}
     success={true}
