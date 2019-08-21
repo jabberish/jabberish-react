@@ -7,9 +7,9 @@ import { Button } from '@material-ui/core';
 const Navigation = () => {
   return (
     <nav className={styles.Navigation}>
-      <Button color="inherit"><Link className={styles.Link} to='/'>Home</Link></Button>
-      <Button color="inherit"><Link className={styles.Link} to='/register'>Register</Link></Button>
-      <Button color="inherit"><Link className={styles.Link} to='/login'>Login</Link></Button>
+      <Link className={styles.Link} to='/'><Button color="inherit">Home</Button></Link>
+      <Link className={styles.Link} to='/register'><Button color="inherit">Register</Button></Link>
+      <Link className={styles.Link} to='/login'><Button color="inherit">Login</Button></Link>
     </nav>
   );
 };
