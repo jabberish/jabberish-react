@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Toolbar, Input, Button, Container } from '@material-ui/core';
+import { Toolbar, Button, Container, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -19,7 +19,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
   return (
     <Container maxWidth="xl" className={classes.container}>
       <Toolbar>
-        <Input 
+        <TextField 
           className={classes.input} 
           placeholder="Message" 
           onChange={onUpdateMessageInput} 
