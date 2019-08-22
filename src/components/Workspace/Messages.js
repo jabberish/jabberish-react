@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Message from './Message';
@@ -22,12 +22,23 @@ const useStyles = makeStyles(theme => ({
 
 const Messages = ({ messagesData }) => {
   const classes = useStyles();
+
+  useEffect(() => {
+    scrollToBottom();
+  });
+  
+  const scrollToBottom = () => {
+    const el = document.getElementById('scroll-bottom');
+    el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <Container maxWidth="xl" className={classes.container}>
       <List className={classes.list}>
         {messagesData.map((messageData, i) => (
           <Message key={messageData._id} i={i} messageData={messageData} />
         ))}
+        <div id="scroll-bottom" style={{ float:'left', clear: 'both' }}></div>
       </List>
     </Container>
   );
