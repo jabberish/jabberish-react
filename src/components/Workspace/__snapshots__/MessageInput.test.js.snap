@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageInput component renders MessageInput 1`] = `
+<WithStyles(ForwardRef(Container))
+  className="makeStyles-container-1"
+  maxWidth="xl"
+>
+  <WithStyles(ForwardRef(Toolbar))>
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-input-2"
+      multiline={true}
+      onChange={[Function]}
+      placeholder="Message"
+      value="input"
+    />
+    <WithStyles(ForwardRef(Button))
+      onClick={[Function]}
+    >
+      Send
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(Container))>
+`;
