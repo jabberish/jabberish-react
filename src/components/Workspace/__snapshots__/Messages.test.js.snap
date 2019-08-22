@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Messages component renders Messages 1`] = `
+<WithStyles(ForwardRef(Container))
+  className="makeStyles-container-1"
+  maxWidth="xl"
+>
+  <WithStyles(ForwardRef(List))
+    className="makeStyles-list-2"
+  />
+</WithStyles(ForwardRef(Container))>
+`;
