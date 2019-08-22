@@ -8,8 +8,8 @@ describe('AuthForm component', () => {
       formTitle="Login"
       handleSubmit={() => {}}
       handleUpdate={() => {}}
-      success={() => {}}
-      failMessage={() => {}}
+      success={true}
+      failMessage='fail'
     />);
     expect(wrapper).toMatchSnapshot();
   });
