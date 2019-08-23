@@ -10,7 +10,21 @@ const WorkspaceList = ({ workspaces, updateWorkspace }) => {
   return (
     <>
       <h3>Workspace List</h3>
-      <ul>{workspaceList}</ul>
+      <ul>
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+        {workspaceList}
+      </ul>
     </>
   );
 };

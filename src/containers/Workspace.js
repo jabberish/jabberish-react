@@ -26,6 +26,9 @@ class Workspace extends React.Component {
   }
 
   componentDidMount() {
+    const root = document.getElementById('root');
+    root.style.overflow = 'hidden';
+    
     const { currentWorkspace } = this.props;
     this.setState({ currentWorkspace });
     fetchWorkspaceChannels(currentWorkspace)
@@ -34,6 +37,11 @@ class Workspace extends React.Component {
           this.setState({ channels: channels });
         }
       });
+  }
+
+  componentWillUnmount() {
+    const root = document.getElementById('root');
+    root.style.overflow = 'auto';
   }
 
   selectChannel = channel => {
@@ -74,6 +82,7 @@ class Workspace extends React.Component {
 
   render() {
     const { channels, messagesData, messageInput } = this.state;
+    
     return (
       <section className={styles.Workspace}>
         <ChannelList channels={channels} selectChannel={this.selectChannel} />

@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
 import App from './containers/App';
 import theme from './theme';
+import './index.css';
 
 render(
   <ThemeProvider theme={theme}>

@@ -7,6 +7,16 @@ exports[`Messages component renders Messages 1`] = `
 >
   <WithStyles(ForwardRef(List))
     className="makeStyles-list-2"
-  />
+  >
+    <div
+      id="scroll-bottom"
+      style={
+        Object {
+          "clear": "both",
+          "float": "left",
+        }
+      }
+    />
+  </WithStyles(ForwardRef(List))>
 </WithStyles(ForwardRef(Container))>
 `;
