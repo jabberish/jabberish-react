@@ -27,7 +27,8 @@ class Workspace extends React.Component {
 
   componentDidMount() {
     const root = document.getElementById('root');
-    root.style.overflow = 'hidden';
+    root.style.overflowY = 'hidden';
+    root.style.overflowX = 'hidden';
     
     const { currentWorkspace } = this.props;
     this.setState({ currentWorkspace });
@@ -41,7 +42,8 @@ class Workspace extends React.Component {
 
   componentWillUnmount() {
     const root = document.getElementById('root');
-    root.style.overflow = 'auto';
+    root.style.overflowY = 'auto';
+    root.style.overflowX = 'hidden';
   }
 
   selectChannel = channel => {
