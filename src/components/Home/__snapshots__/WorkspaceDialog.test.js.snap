@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkspaceDialog component renders WorkspaceDialog 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  aria-labelledby="form-dialog-title"
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(DialogTitle))
+    id="form-dialog-title"
+  >
+    Create Workspace
+  </WithStyles(ForwardRef(DialogTitle))>
+  <WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(DialogContentText))>
+      Please provide a name for your new workspace.
+    </WithStyles(ForwardRef(DialogContentText))>
+    <WithStyles(ForwardRef(TextField))
+      autoFocus={true}
+      fullWidth={true}
+      id="newWorkspaceName"
+      label="Workspace name"
+      margin="dense"
+      name="newWorkspaceName"
+      onChange={[Function]}
+      type="text"
+    />
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      color="secondary"
+      onClick={[Function]}
+    >
+      Cancel
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      onClick={[Function]}
+    >
+      Create
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</WithStyles(ForwardRef(Dialog))>
+`;
