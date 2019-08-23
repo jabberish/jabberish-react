@@ -2,9 +2,6 @@
 
 exports[`Register component renders Register 1`] = `
 <Fragment>
-  <h1>
-    Register
-  </h1>
   <AuthForm
     failMessage="That username is taken. Please try another!"
     formTitle="Register"

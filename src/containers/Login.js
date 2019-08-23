@@ -36,7 +36,6 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <h1>Login</h1>
         <AuthForm 
           formTitle="Login"
           handleSubmit={this.handleSubmit}
