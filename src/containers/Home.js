@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import WorkspaceList from '../components/Home/WorkspaceList';
 import WorkspaceDialog from '../components/Home/WorkspaceDialog';
 import { fetchMemberWorkspaces, fetchCreateWorkspace } from '../services/workspace-api';
+import { Typography } from '@material-ui/core';
 
 class Home extends React.Component {
   static propTypes = {
@@ -11,8 +12,9 @@ class Home extends React.Component {
   
   state = {
     workspaces: [],
-    dialogOpen: false,
-    newWorkspaceName: ''
+    createDialogOpen: false,
+    newWorkspaceName: '',
+    deleteDialogOpen: false
   }
 
   componentDidMount() {
@@ -29,11 +31,11 @@ class Home extends React.Component {
   }
 
   handleOpenDialog = () => {
-    this.setState({ dialogOpen: true });
+    this.setState({ createDialogOpen: true });
   }
 
   handleCloseDialog = () => {
-    this.setState({ dialogOpen: false });
+    this.setState({ createDialogOpen: false });
   }
 
   handleCreateWorkspace = () => {
@@ -51,19 +53,19 @@ class Home extends React.Component {
   }
   
   render() {
-    const { workspaces, dialogOpen } = this.state;
+    const { workspaces, createDialogOpen } = this.state;
     const { updateWorkspace } = this.props;
 
     return (
       <>
-        <h2>Home</h2>
+      <Typography variant="h4">Workspaces</Typography>
         <WorkspaceList 
           workspaces={workspaces} 
           updateWorkspace={updateWorkspace} 
           handleOpenDialog={this.handleOpenDialog} 
         />
         <WorkspaceDialog 
-          open={dialogOpen} 
+          open={createDialogOpen} 
           handleCloseDialog={this.handleCloseDialog} 
           handleCreateWorkspace={this.handleCreateWorkspace}
           handleUpdate={this.handleUpdate}

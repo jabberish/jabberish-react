@@ -36,7 +36,6 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
 
   return (
     <>
-      <h3>Workspace List</h3>
       <Grid container className={classes.container} justify="flex-start" spacing={2}>
         {workspaces.map(({ workspace }) => (
           <Grid key={workspace._id} item>
@@ -45,7 +44,7 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
                 <Typography variant="subtitle1" className={classes.typography}>
                   {workspace.name}
                 </Typography>
-                <Button onClick={e => e.preventDefault()}>Test</Button>
+                <Button onClick={e => e.preventDefault()}></Button>
               </Paper>
             </Link>
           </Grid>

@@ -2,9 +2,6 @@
 
 exports[`WorkspaceList component renders WorkspaceList 1`] = `
 <Fragment>
-  <h3>
-    Workspace List
-  </h3>
   <WithStyles(ForwardRef(Grid))
     className="makeStyles-container-6"
     container={true}
