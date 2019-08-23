@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateWorkspace component renders CreateWorkspace 1`] = `
+<WithStyles(ForwardRef(Grid))
+  item={true}
+>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-button-1"
+    color="primary"
+    onClick={[Function]}
+    variant="outlined"
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="subtitle1"
+    >
+      Create Workspace
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Button))>
+</WithStyles(ForwardRef(Grid))>
+`;
