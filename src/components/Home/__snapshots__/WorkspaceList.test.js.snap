@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkspaceList component renders WorkspaceList 1`] = `
+<Fragment>
+  <h3>
+    Workspace List
+  </h3>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-container-6"
+    container={true}
+    justify="flex-start"
+    spacing={2}
+  >
+    <CreateWorkspace
+      handleOpenDialog={[Function]}
+    />
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
+`;
