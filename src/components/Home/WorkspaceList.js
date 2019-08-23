@@ -44,7 +44,7 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
                 <Typography variant="subtitle1" className={classes.typography}>
                   {workspace.name}
                 </Typography>
-                <Button onClick={e => e.preventDefault()}></Button>
+                <Button onClick={e => e.preventDefault()}>Delete</Button>
               </Paper>
             </Link>
           </Grid>
