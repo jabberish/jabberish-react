@@ -35,7 +35,7 @@ const WorkspaceList = ({ workspaces, updateWorkspace }) => {
                 <Typography variant="subtitle1" className={classes.typography}>
                   {workspace.name}
                 </Typography>
-                <Button style={{ zIndex: 100000 }} onClick={e => e.preventDefault()}>Test</Button>
+                <Button onClick={e => e.preventDefault()}>Test</Button>
               </Paper>
             </Link>
           </Grid>
