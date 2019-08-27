@@ -14,7 +14,7 @@ import Workspace from './Workspace';
 import 'normalize.css';
 
 import { fetchVerify } from '../services/auth-api';
-import AllWorkspaces from './AllWorkspaces';
+import Home from '../pages/Home';
 
 class App extends React.Component {
   state = {
@@ -60,7 +60,7 @@ class App extends React.Component {
               userId={userId} 
             />}
           />
-          <Route path="/" component={AllWorkspaces} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
     );
