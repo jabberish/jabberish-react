@@ -7,7 +7,6 @@ import {
 
 import Header from '../components/Header';
 import Landing from '../components/Landing';
-import Home from './Home';
 import Register from './Register';
 import Login from './Login';
 import Workspace from './Workspace';
@@ -15,6 +14,7 @@ import Workspace from './Workspace';
 import 'normalize.css';
 
 import { fetchVerify } from '../services/auth-api';
+import AllWorkspaces from './AllWorkspaces';
 
 class App extends React.Component {
   state = {
@@ -60,10 +60,7 @@ class App extends React.Component {
               userId={userId} 
             />}
           />
-          <Route 
-            path="/" 
-            render={(props) => <Home {...props} updateWorkspace={this.updateWorkspace} />}
-          />
+          <Route path="/" component={AllWorkspaces} />
         </Switch>
       </Router>
     );

@@ -1,9 +1,14 @@
-import { GET_MEMBER_WORKSPACES_LOADING, GET_MEMBER_WORKSPACES, GET_MEMBER_WORKSPACES_ERROR } from '../actions/workspaceActions';
+import {
+  GET_MEMBER_WORKSPACES_LOADING,
+  GET_MEMBER_WORKSPACES,
+  GET_MEMBER_WORKSPACES_ERROR,
+  SET_CURRENT_WORKSPACE } from '../actions/workspaceActions';
 
 const initialState = {
   loading: false,
   list: [],
-  error: null
+  error: null,
+  currentWorkspace: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -14,6 +19,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, error: null, loading: false, list: action.payload };
     case GET_MEMBER_WORKSPACES_ERROR:
       return { ...state, loading: false, error: action.payload };
+    case SET_CURRENT_WORKSPACE:
+      return { ...state, currentWorkspace: action.payload };
     default:
       return state;
   }

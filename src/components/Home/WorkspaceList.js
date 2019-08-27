@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { Grid, Paper, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import CreateWorkspace from './CreateWorkspace';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -31,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
+const WorkspaceList = ({ workspaces, setCurrentWorkspace }) => {
   const classes = useStyles();
 
   return (
@@ -39,7 +38,7 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
       <Grid container className={classes.container} justify="flex-start" spacing={2}>
         {workspaces.map(({ workspace }) => (
           <Grid key={workspace._id} item>
-            <Link to="./workspace" onClick={() => updateWorkspace(workspace._id)} className={classes.link}>
+            <Link to="./workspace" onClick={() => setCurrentWorkspace(workspace._id)} className={classes.link}>
               <Paper className={classes.paper} >
                 <Typography variant="subtitle1" className={classes.typography}>
                   {workspace.name}
@@ -48,7 +47,6 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
             </Link>
           </Grid>
         ))}
-        <CreateWorkspace handleOpenDialog={handleOpenDialog} />
       </Grid>
     </>
   );
@@ -56,8 +54,7 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
 
 WorkspaceList.propTypes = {
   workspaces: PropTypes.array.isRequired,
-  updateWorkspace: PropTypes.func.isRequired,
-  handleOpenDialog: PropTypes.func.isRequired
+  setCurrentWorkspace: PropTypes.func.isRequired
 };
 
 export default WorkspaceList;
