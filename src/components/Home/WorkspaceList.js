@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Grid, Paper, makeStyles, Typography, Button } from '@material-ui/core';
+import { Grid, Paper, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import CreateWorkspace from './CreateWorkspace';
 
@@ -44,7 +44,6 @@ const WorkspaceList = ({ workspaces, updateWorkspace, handleOpenDialog }) => {
                 <Typography variant="subtitle1" className={classes.typography}>
                   {workspace.name}
                 </Typography>
-                <Button onClick={e => e.preventDefault()}>Delete</Button>
               </Paper>
             </Link>
           </Grid>

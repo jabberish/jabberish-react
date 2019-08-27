@@ -21,5 +21,4 @@ export const getMemberWorkspaces = () => dispatch => {
         payload: err
       });
     });
-}
-;
+};
