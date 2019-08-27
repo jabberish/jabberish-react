@@ -5,9 +5,17 @@ import WorkspaceDialog from '../components/Home/WorkspaceDialog';
 import { fetchMemberWorkspaces, fetchCreateWorkspace } from '../services/workspace-api';
 import { Typography } from '@material-ui/core';
 
+import { getWorkspaces, getWorkspacesLoading, getWorkspacesError } from '../selectors/workspaceSelectors';
+import { getMemberWorkspaces } from '../actions/workspaceActions';
+import { connect } from 'react-redux';
+
 class Home extends React.Component {
   static propTypes = {
-    updateWorkspace: PropTypes.func.isRequired
+    updateWorkspace: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired,
+    characters: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.object
   };
   
   state = {
@@ -18,12 +26,13 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    fetchMemberWorkspaces()
-      .then(res => {
-        if(res.length) {
-          this.setState({ workspaces: res });
-        }
-      });
+    this.props.fetch();
+    // fetchMemberWorkspaces()
+    //   .then(res => {
+    //     if(res.length) {
+    //       this.setState({ workspaces: res });
+    //     }
+    //   });
   }
 
   handleUpdate = e => {
@@ -75,4 +84,19 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  characters: getWorkspaces(state),
+  loading: getWorkspacesLoading(state),
+  error: getWorkspacesError(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetch() {
+    dispatch(getMemberWorkspaces());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
