@@ -13,13 +13,12 @@ class Home extends React.Component {
   static propTypes = {
     updateWorkspace: PropTypes.func.isRequired,
     fetch: PropTypes.func.isRequired,
-    characters: PropTypes.array.isRequired,
+    workspaces: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.object
   };
   
   state = {
-    workspaces: [],
     createDialogOpen: false,
     newWorkspaceName: '',
     deleteDialogOpen: false
@@ -27,12 +26,6 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetch();
-    // fetchMemberWorkspaces()
-    //   .then(res => {
-    //     if(res.length) {
-    //       this.setState({ workspaces: res });
-    //     }
-    //   });
   }
 
   handleUpdate = e => {
@@ -62,8 +55,8 @@ class Home extends React.Component {
   }
   
   render() {
-    const { workspaces, createDialogOpen } = this.state;
-    const { updateWorkspace } = this.props;
+    const { createDialogOpen } = this.state;
+    const { updateWorkspace, workspaces } = this.props;
 
     return (
       <>
@@ -85,7 +78,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  characters: getWorkspaces(state),
+  workspaces: getWorkspaces(state),
   loading: getWorkspacesLoading(state),
   error: getWorkspacesError(state)
 });
