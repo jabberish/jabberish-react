@@ -9,7 +9,7 @@ import Header from '../components/Header';
 import Landing from '../components/Landing';
 import Register from './Register';
 import Login from './Login';
-import Workspace from './Workspace';
+import Workspace from '../pages/Workspace';
 
 import 'normalize.css';
 
@@ -44,7 +44,7 @@ class App extends React.Component {
   }
   
   render() {
-    const { currentWorkspace, userId, redirect } = this.state;
+    const { redirect } = this.state;
     return (
       <Router>
         <Header redirect={redirect}/>
@@ -52,14 +52,7 @@ class App extends React.Component {
           <Route path="/Login" component={Login}/>
           <Route path="/Register" component={Register}/>
           <Route path="/landing" component={Landing}/>
-          <Route 
-            path="/workspace"   
-            render={(props) => <Workspace 
-              {...props} 
-              currentWorkspace={currentWorkspace} 
-              userId={userId} 
-            />}
-          />
+          <Route path="/workspace" component={Workspace}/>
           <Route path="/" component={Home} />
         </Switch>
       </Router>
