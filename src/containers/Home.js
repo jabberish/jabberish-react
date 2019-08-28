@@ -6,13 +6,13 @@ import { fetchMemberWorkspaces, fetchCreateWorkspace } from '../services/workspa
 import { Typography } from '@material-ui/core';
 
 import { getWorkspaces, getWorkspacesLoading, getWorkspacesError } from '../selectors/workspaceSelectors';
-import { getMemberWorkspaces } from '../actions/workspaceActions';
+import { getMemberWorkspaces, setCurrentWorkspace } from '../actions/workspaceActions';
 import { connect } from 'react-redux';
 
 class Home extends React.Component {
   static propTypes = {
-    updateWorkspace: PropTypes.func.isRequired,
     fetch: PropTypes.func.isRequired,
+    setWorkspace: PropTypes.func.isRequired,
     workspaces: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.object
@@ -56,14 +56,14 @@ class Home extends React.Component {
   
   render() {
     const { createDialogOpen } = this.state;
-    const { updateWorkspace, workspaces } = this.props;
+    const { workspaces, setWorkspace } = this.props;
 
     return (
       <>
       <Typography variant="h4">Workspaces</Typography>
         <WorkspaceList 
           workspaces={workspaces} 
-          updateWorkspace={updateWorkspace} 
+          setCurrentWorkspace={setWorkspace}
           handleOpenDialog={this.handleOpenDialog} 
         />
         <WorkspaceDialog 
@@ -86,7 +86,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetch() {
     dispatch(getMemberWorkspaces());
-  }
+  },
+  setWorkspace: (id) => dispatch(setCurrentWorkspace(id))
 });
 
 export default connect(

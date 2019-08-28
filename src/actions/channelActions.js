@@ -22,3 +22,9 @@ export const getChannels = () => dispatch => {
       });
     });
 };
+
+export const SELECT_CHANNEL = 'SELECT_CHANNEL';
+export const selectChannel = id => ({
+  type: SELECT_CHANNEL,
+  payload: id
+});

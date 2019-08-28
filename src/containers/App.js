@@ -14,7 +14,7 @@ import Workspace from '../pages/Workspace';
 import 'normalize.css';
 
 import { fetchVerify } from '../services/auth-api';
-import Home from '../pages/Home';
+import Home from './Home';
 
 class App extends React.Component {
   state = {
