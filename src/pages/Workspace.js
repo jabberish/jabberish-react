@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ChannelList from '../components/Workspace/ChannelList';
 // import Chat from '../components/Workspace/Chat';
 import { getChannels } from '../selectors/channelSelectors';
+import {  } from '../actions/channelActions';
 import { connect } from 'react-redux';
-import { selectChannel } from '../actions/channelActions';
+import { getChannels as fetch, selectChannel } from '../actions/channelActions';
+import { getCurrentWorkspace } from '../selectors/workspaceSelectors';
 
-const Workspace = ({ channels }) => {
+const Workspace = ({ currentWorkspace, channels, fetch }) => {
+
+  useEffect(() => {
+    fetch(currentWorkspace);
+  }, []);
+  
   return (
     <section>
       <ChannelList channels={channels} selectChannel={selectChannel} />
@@ -21,14 +28,18 @@ const Workspace = ({ channels }) => {
 };
 
 Workspace.propTypes = {
-  channels: PropTypes.array.isRequired
+  currentWorkspace: PropTypes.string.isRequired,
+  channels: PropTypes.array.isRequired,
+  fetch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  channels: getChannels(state)
+  channels: getChannels(state),
+  currentWorkspace: getCurrentWorkspace(state)
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetch: (currentWorkspace) => dispatch(fetch(currentWorkspace)),
   setlectChannel: id => dispatch(selectChannel(id))
 });
 
