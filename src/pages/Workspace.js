@@ -60,7 +60,6 @@ class Workspace extends React.Component {
     });
 
     socket.on('history', (msgs) => {
-      console.log(msgs);
       this.props.loadHistory(msgs);
     });
   }
