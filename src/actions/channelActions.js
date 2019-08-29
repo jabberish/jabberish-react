@@ -28,3 +28,14 @@ export const selectChannel = id => ({
   type: SELECT_CHANNEL,
   payload: id
 });
+
+export const LOAD_HISTORY = 'LOAD_HISTORY';
+export const loadHistory = history => ({
+  type: LOAD_HISTORY,
+  payload: history
+});
+
+export const CLEAR_HISTORY = 'CLEAR_HISTORY';
+export const clearHistory = () => ({
+  type: CLEAR_HISTORY
+});

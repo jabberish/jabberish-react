@@ -38,7 +38,7 @@ const ChannelList = ({ channels, selectChannel }) => {
           <ListItem 
             button 
             key={channel._id}
-            onClick={() => selectChannel(channel)}
+            onClick={() => selectChannel(channel._id)}
           >
             <ListItemText primary={channel.name} />
           </ListItem>

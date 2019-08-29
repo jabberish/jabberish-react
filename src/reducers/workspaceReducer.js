@@ -8,7 +8,7 @@ const initialState = {
   loading: false,
   list: [],
   error: null,
-  currentWorkspace: null
+  currentWorkspace: ''
 };
 
 export default function reducer(state = initialState, action) {
