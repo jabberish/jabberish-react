@@ -15,6 +15,7 @@ import 'normalize.css';
 
 import { fetchVerify } from '../services/auth-api';
 import Home from './Home';
+import { WithSession } from './WithSession';
 
 class App extends React.Component {
   state = {
@@ -52,8 +53,8 @@ class App extends React.Component {
           <Route path="/Login" component={Login}/>
           <Route path="/Register" component={Register}/>
           <Route path="/landing" component={Landing}/>
-          <Route path="/workspace" component={Workspace}/>
-          <Route path="/" component={Home} />
+          <Route path="/workspace" component={WithSession(Workspace)}/>
+          <Route path="/" component={WithSession(Home)} />
         </Switch>
       </Router>
     );

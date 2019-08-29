@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ChannelList from '../components/Workspace/ChannelList';
 // import Chat from '../components/Workspace/Chat';
@@ -8,30 +8,40 @@ import { connect } from 'react-redux';
 import { getChannels as fetch, selectChannel } from '../actions/channelActions';
 import { getCurrentWorkspace } from '../selectors/workspaceSelectors';
 
-const Workspace = ({ currentWorkspace, channels, fetch }) => {
+// eslint-disable-next-line no-undef
+// const socket = io('http://localhost:3000');
 
-  useEffect(() => {
-    fetch(currentWorkspace);
-  }, []);
+class Workspace extends React.Component {
+  static propTypes = {
+    currentWorkspace: PropTypes.string.isRequired,
+    selectChannel: PropTypes.func.isRequired,
+    channels: PropTypes.array.isRequired,
+    fetch: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.fetch(this.props.currentWorkspace);
+  }
+
+  handleSelectChannel = (id) => {
+    // console.log('selecting', id);
+    this.props.selectChannel(id);
+  }
   
-  return (
-    <section>
-      <ChannelList channels={channels} selectChannel={selectChannel} />
-      {/* <Chat 
-        messagesData={messagesData} 
-        onSubmitMessage={this.onSubmitMessage} 
-        onUpdateMessageInput={this.onUpdateMessageInput}
-        messageInput={messageInput} 
-      /> */}
-    </section>
-  );
-};
-
-Workspace.propTypes = {
-  currentWorkspace: PropTypes.string.isRequired,
-  channels: PropTypes.array.isRequired,
-  fetch: PropTypes.func.isRequired
-};
+  render() {
+    return (
+      <section>
+        <ChannelList channels={this.props.channels} selectChannel={this.handleSelectChannel} />
+        {/* <Chat 
+          messagesData={messagesData} 
+          onSubmitMessage={this.onSubmitMessage} 
+          onUpdateMessageInput={this.onUpdateMessageInput}
+          messageInput={messageInput} 
+        /> */}
+      </section>
+    );
+  }
+}
 
 const mapStateToProps = (state) => ({
   channels: getChannels(state),
@@ -40,7 +50,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetch: (currentWorkspace) => dispatch(fetch(currentWorkspace)),
-  setlectChannel: id => dispatch(selectChannel(id))
+  selectChannel: id => dispatch(selectChannel(id))
 });
 
 export default connect(

@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const AuthForm = ({ formTitle, handleSubmit, handleUpdate, success, failMessage }) => {
+const AuthForm = ({ formTitle, handleSubmit, handleUpdate, errorMessage }) => {
   const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
@@ -77,8 +77,8 @@ const AuthForm = ({ formTitle, handleSubmit, handleUpdate, success, failMessage 
           >
             Sign In
           </Button>
-          {!success && (
-            <span>{failMessage}</span>
+          {errorMessage && (
+            <span>{errorMessage}</span>
           )}
         </form>
       </div>
@@ -90,8 +90,7 @@ AuthForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleUpdate: PropTypes.func.isRequired,
-  success: PropTypes.bool.isRequired,
-  failMessage: PropTypes.string.isRequired
+  errorMessage: PropTypes.string
 };
 
 export default AuthForm;

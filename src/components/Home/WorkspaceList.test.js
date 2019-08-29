@@ -6,8 +6,7 @@ describe('WorkspaceList component', () => {
   it('renders WorkspaceList', () => {
     const wrapper = shallow(<WorkspaceList 
       workspaces={[]} 
-      updateWorkspace={() => {}} 
-      handleOpenDialog={() => {}} 
+      setCurrentWorkspace={() => {}}
     />);
     expect(wrapper).toMatchSnapshot();
   });
