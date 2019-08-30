@@ -48,7 +48,6 @@ class Workspace extends React.Component {
   }
 
   handleUpdate = ({ target }) => {
-    console.log(target.value);
     this.setState({ [target.name]: target.value });
   }
 
@@ -80,7 +79,9 @@ class Workspace extends React.Component {
     } = this.props;
 
     socket.removeListener('history');
+    socket.removeListener('chat message');
     socket.emit('leave', currentChannel);
+
     selectChannel(id);
     socket.emit('join', { 
       channel: id, 
