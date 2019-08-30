@@ -10,7 +10,7 @@ const fetchLogin = (user) => {
   })
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
-      if(!ok) throw 'Incorrect username or password';
+      if(!ok) throw 'Incorrect username or password.';
 
       return json;
     });
@@ -26,7 +26,12 @@ const fetchRegister = (user) => {
       password: user.password
     })
   })
-    .then(res => res.json());
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw 'That username is taken. Please try a different one.';
+
+      return json;
+    });
 };
 
 const fetchVerify = () => {
