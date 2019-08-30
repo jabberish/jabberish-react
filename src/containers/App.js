@@ -10,55 +10,25 @@ import Landing from '../components/Landing';
 import Register from './Register';
 import Login from './Login';
 import Workspace from '../pages/Workspace';
+import Home from './Home';
+
+import { WithSession } from './WithSession';
 
 import 'normalize.css';
 
-import { fetchVerify } from '../services/auth-api';
-import Home from './Home';
-import { WithSession } from './WithSession';
-
-class App extends React.Component {
-  state = {
-    username: '',
-    userId: '',
-    redirect: false,
-    currentWorkspace: ''
-  }
-
-  componentDidMount() {
-    this.checkAuth();
-  }
-
-  checkAuth() {
-    fetchVerify()
-      .then(res => {
-        if(res._id) {
-          this.setState({ username: res.username, userId: res._id });
-        } else {
-          this.setState({ redirect: true });
-        }
-      });
-  }
-
-  updateWorkspace = (workspaceId) => {
-    this.setState({ currentWorkspace: workspaceId });
-  }
-  
-  render() {
-    const { redirect } = this.state;
-    return (
-      <Router>
-        <Header redirect={redirect}/>
-        <Switch>
-          <Route path="/Login" component={Login}/>
-          <Route path="/Register" component={Register}/>
-          <Route path="/landing" component={Landing}/>
-          <Route path="/workspace" component={WithSession(Workspace)}/>
-          <Route path="/" component={WithSession(Home)} />
-        </Switch>
-      </Router>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/Login" component={Login}/>
+        <Route path="/Register" component={Register}/>
+        <Route path="/landing" component={Landing}/>
+        <Route path="/workspace" component={WithSession(Workspace)}/>
+        <Route path="/" component={WithSession(Home)} />
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
