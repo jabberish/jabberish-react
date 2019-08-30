@@ -10,6 +10,7 @@ exports[`MessageInput component renders MessageInput 1`] = `
       autoComplete="off"
       className="makeStyles-input-2"
       multiline={true}
+      name="messageInput"
       onChange={[Function]}
       placeholder="Message"
       value="input"
