@@ -4,15 +4,13 @@ import io from 'socket.io-client';
 import ChannelList from '../components/Workspace/ChannelList';
 import Chat from '../components/Workspace/Chat';
 import { getChannels, getCurrentChannel, getMessages } from '../selectors/channelSelectors';
-import { loadHistory, clearHistory, recieveMessage } from '../actions/channelActions';
+import { loadHistory, clearHistory, recieveMessage, clearChannels } from '../actions/channelActions';
 import { connect } from 'react-redux';
 import { getChannels as fetch, selectChannel } from '../actions/channelActions';
 import { getCurrentWorkspace } from '../selectors/workspaceSelectors';
 import { getUserId } from '../selectors/userSelectors';
 
 import styles from '../containers/Workspace.css';
-
-// const socket = io('http://localhost:3000');
 
 class Workspace extends React.Component {
   static propTypes = {
@@ -25,7 +23,8 @@ class Workspace extends React.Component {
     messages: PropTypes.array.isRequired,
     loadHistory: PropTypes.func.isRequired,
     clearHistory: PropTypes.func.isRequired,
-    receiveMessage: PropTypes.func.isRequired
+    receiveMessage: PropTypes.func.isRequired,
+    clearChannels: PropTypes.func.isRequired
   }
 
   state = {
@@ -44,6 +43,7 @@ class Workspace extends React.Component {
 
   componentWillUnmount() {
     this.props.clearHistory();
+    this.props.clearChannels();
     const root = document.getElementById('root');
     root.style.overflowY = 'auto';
     root.style.overflowX = 'hidden';
@@ -130,7 +130,8 @@ const mapDispatchToProps = dispatch => ({
   selectChannel: id => dispatch(selectChannel(id)),
   loadHistory: history => dispatch(loadHistory(history)),
   clearHistory: () => dispatch(clearHistory()),
-  receiveMessage: message => dispatch(recieveMessage(message))
+  receiveMessage: message => dispatch(recieveMessage(message)),
+  clearChannels: () => dispatch(clearChannels())
 });
 
 export default connect(

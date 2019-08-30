@@ -5,7 +5,8 @@ import {
   SELECT_CHANNEL,
   LOAD_HISTORY,
   CLEAR_HISTORY,
-  RECEIVE_MESSAGE
+  RECEIVE_MESSAGE,
+  CLEAR_CHANNELS
 } from '../actions/channelActions';
 
 const initialState = {
@@ -24,6 +25,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, loading: false, list: action.payload };
     case GET_CHANNELS_ERROR:
       return { ...state, loading: false, error: action.payload };
+    case CLEAR_CHANNELS:
+      return { ...state, list: [] };
     case SELECT_CHANNEL:
       return { ...state, currentChannel: action.payload };
     case LOAD_HISTORY:

@@ -23,6 +23,11 @@ export const getChannels = (id) => dispatch => {
     });
 };
 
+export const CLEAR_CHANNELS = 'CLEAR_CHANNELS';
+export const clearChannels = () => ({
+  type: CLEAR_CHANNELS
+});
+
 export const SELECT_CHANNEL = 'SELECT_CHANNEL';
 export const selectChannel = id => ({
   type: SELECT_CHANNEL,
