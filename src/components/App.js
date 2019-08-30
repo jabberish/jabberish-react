@@ -5,14 +5,14 @@ import {
   Route
 } from 'react-router-dom';
 
-import Header from '../components/Header';
-import Landing from '../components/Landing';
-import Register from './Register';
-import Login from './Login';
+import Header from './Header';
+import Landing from './Landing';
+import Register from '../containers/Register';
+import Login from '../containers/Login';
 import Workspace from '../pages/Workspace';
-import Home from './Home';
+import Home from '../containers/Home';
 
-import { WithSession } from './WithSession';
+import { WithSession } from '../containers/WithSession';
 
 import 'normalize.css';
 
