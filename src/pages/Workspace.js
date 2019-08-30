@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import io from 'socket.io-client';
 import ChannelList from '../components/Workspace/ChannelList';
 import Chat from '../components/Workspace/Chat';
 import { getChannels, getCurrentChannel, getMessages } from '../selectors/channelSelectors';
@@ -11,8 +12,7 @@ import { getUserId } from '../selectors/userSelectors';
 
 import styles from '../containers/Workspace.css';
 
-// eslint-disable-next-line no-undef
-const socket = io('http://localhost:3000');
+// const socket = io('http://localhost:3000');
 
 class Workspace extends React.Component {
   static propTypes = {
@@ -31,6 +31,8 @@ class Workspace extends React.Component {
   state = {
     messageInput: ''
   }
+
+  socket = io('http://localhost:3000')
 
   componentDidMount() {
     const root = document.getElementById('root');
@@ -59,7 +61,7 @@ class Workspace extends React.Component {
     } = this.props;
     const { messageInput } = this.state;
     e.preventDefault();
-    socket.emit('chat message', {
+    this.socket.emit('chat message', {
       channel: currentChannel,
       message: messageInput,
       user: userId,
@@ -78,22 +80,22 @@ class Workspace extends React.Component {
       receiveMessage
     } = this.props;
 
-    socket.removeListener('history');
-    socket.removeListener('chat message');
-    socket.emit('leave', currentChannel);
+    this.socket.removeListener('history');
+    this.socket.removeListener('chat message');
+    this.socket.emit('leave', currentChannel);
 
     selectChannel(id);
-    socket.emit('join', { 
+    this.socket.emit('join', { 
       channel: id, 
       workspace: currentWorkspace, 
       user: userId
     });
 
-    socket.on('history', (msgs) => {
+    this.socket.on('history', (msgs) => {
       loadHistory(msgs);
     });
 
-    socket.on('chat message', msg => {
+    this.socket.on('chat message', msg => {
       receiveMessage(msg);
     });
   }

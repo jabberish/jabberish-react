@@ -17,6 +17,7 @@ export const WithSession = Component => {
     }
 
     render() {
+      if(!this.props.userId) return null;
       return <Component {...this.props}/>;
     }
   }

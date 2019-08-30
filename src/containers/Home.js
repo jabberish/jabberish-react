@@ -15,7 +15,7 @@ class Home extends React.Component {
     setWorkspace: PropTypes.func.isRequired,
     workspaces: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    error: PropTypes.object
+    error: PropTypes.string
   };
   
   state = {

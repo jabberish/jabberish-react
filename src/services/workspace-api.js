@@ -4,7 +4,12 @@ const fetchMemberWorkspaces = () => {
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include'
   })
-    .then(res => res.json());
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw 'Could not get workspaces';
+
+      return json;
+    });
 };
 
 const fetchCreateWorkspace = (name) => {
