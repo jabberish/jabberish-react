@@ -39,3 +39,9 @@ export const CLEAR_HISTORY = 'CLEAR_HISTORY';
 export const clearHistory = () => ({
   type: CLEAR_HISTORY
 });
+
+export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+export const recieveMessage = message => ({
+  type: RECEIVE_MESSAGE,
+  payload: message
+});

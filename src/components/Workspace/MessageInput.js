@@ -22,6 +22,7 @@ const MessageInput = ({ onSubmitMessage, onUpdateMessageInput, messageInput }) =
         <TextField 
           className={classes.input} 
           placeholder="Message" 
+          name="messageInput"
           onChange={onUpdateMessageInput} 
           value={messageInput} 
           autoComplete="off" 

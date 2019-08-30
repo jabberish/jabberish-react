@@ -4,7 +4,8 @@ import {
   GET_CHANNELS_ERROR,
   SELECT_CHANNEL,
   LOAD_HISTORY,
-  CLEAR_HISTORY
+  CLEAR_HISTORY,
+  RECEIVE_MESSAGE
 } from '../actions/channelActions';
 
 const initialState = {
@@ -29,6 +30,11 @@ export default function reducer(state = initialState, action) {
       return { ...state, messages: action.payload };
     case CLEAR_HISTORY:
       return { ...state, messages: [] };
+    case RECEIVE_MESSAGE:
+      return {
+        ...state,
+        messages: [...state.messages, action.payload]
+      };
     default:
       return state;
   }
