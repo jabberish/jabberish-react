@@ -33,7 +33,7 @@ const Messages = ({ messagesData }) => {
   };
 
   return (
-    <Container maxWidth="xl" className={classes.container}>
+    <Container maxWidth="false" className={classes.container}>
       <List className={classes.list}>
         {messagesData.map((messageData, i) => (
           <Message key={messageData._id} i={i} messageData={messageData} />
