@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -32,7 +32,7 @@ const ChannelList = ({ channels, selectChannel }) => {
     >
       <div className={classes.toolbar} />
 
-      Channels
+      <Typography variant="h6">Channels</Typography>
       <List>
         {channels.map(channel => (
           <ListItem 
