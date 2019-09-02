@@ -42,6 +42,8 @@ class Workspace extends React.Component {
   }
 
   componentWillUnmount() {
+    this.socket.removeListener('history');
+    this.socket.removeListener('chat message');
     this.props.clearHistory();
     this.props.clearChannels();
     const root = document.getElementById('root');
