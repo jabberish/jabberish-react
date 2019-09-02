@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Grid, Paper, makeStyles, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import CreateWorkspace from './CreateWorkspace';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const WorkspaceList = ({ workspaces, setCurrentWorkspace }) => {
+const WorkspaceList = ({ workspaces, setCurrentWorkspace, handleOpenDialog }) => {
   const classes = useStyles();
 
   return (
@@ -47,6 +48,7 @@ const WorkspaceList = ({ workspaces, setCurrentWorkspace }) => {
             </Link>
           </Grid>
         ))}
+        <CreateWorkspace handleOpenDialog={handleOpenDialog} />
       </Grid>
     </>
   );
@@ -54,7 +56,8 @@ const WorkspaceList = ({ workspaces, setCurrentWorkspace }) => {
 
 WorkspaceList.propTypes = {
   workspaces: PropTypes.array.isRequired,
-  setCurrentWorkspace: PropTypes.func.isRequired
+  setCurrentWorkspace: PropTypes.func.isRequired,
+  handleOpenDialog: PropTypes.func.isRequired
 };
 
 export default WorkspaceList;
