@@ -3,7 +3,7 @@
 exports[`Messages component renders Messages 1`] = `
 <WithStyles(ForwardRef(Container))
   className="makeStyles-container-1"
-  maxWidth="xl"
+  maxWidth="false"
 >
   <WithStyles(ForwardRef(List))
     className="makeStyles-list-2"
