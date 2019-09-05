@@ -13,7 +13,11 @@ exports[`ChannelList component renders ChannelList 1`] = `
   <div
     className="makeStyles-toolbar-4"
   />
-  Channels
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Channels
+  </WithStyles(ForwardRef(Typography))>
   <WithStyles(ForwardRef(List)) />
 </WithStyles(ForwardRef(Drawer))>
 `;
