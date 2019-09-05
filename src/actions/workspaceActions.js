@@ -1,4 +1,4 @@
-import { fetchMemberWorkspaces } from '../services/workspace-api';
+import { fetchMemberWorkspaces, fetchInviteUser } from '../services/workspace-api';
 
 export const GET_MEMBER_WORKSPACES_LOADING = 'GET_MEMBER_WORKSPACES_LOADING';
 export const GET_MEMBER_WORKSPACES = 'GET_MEMBER_WORKSPACES';
@@ -28,3 +28,25 @@ export const setCurrentWorkspace = id => ({
   type: SET_CURRENT_WORKSPACE,
   payload: id
 });
+
+export const INVITE_USER_WORKSPACE = 'INVITE_USER_WORKSPACE';
+export const INVITE_USER_WORKSPACE_LOADING = 'INVITE_USER_WORKSPACE_LOADING';
+export const INVITE_USER_WORKSPACE_ERROR = 'INVITE_USER_WORKSPACE_ERROR';
+export const inviteUser = (username, workspace) => dispatch => {
+  dispatch({
+    type: INVITE_USER_WORKSPACE_LOADING
+  });
+
+  return fetchInviteUser(username, workspace)
+    .then(() => {
+      dispatch({
+        type: INVITE_USER_WORKSPACE,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: INVITE_USER_WORKSPACE_ERROR,
+        payload: err
+      });
+    });
+};

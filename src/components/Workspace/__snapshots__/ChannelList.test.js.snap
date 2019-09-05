@@ -13,6 +13,9 @@ exports[`ChannelList component renders ChannelList 1`] = `
   <div
     className="makeStyles-toolbar-4"
   />
+  <WithStyles(ForwardRef(Button))>
+    Invite
+  </WithStyles(ForwardRef(Button))>
   <WithStyles(ForwardRef(Typography))
     variant="h6"
   >

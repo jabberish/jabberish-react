@@ -24,7 +24,20 @@ const fetchCreateWorkspace = (name) => {
     .then(res => res.json());
 };
 
+const fetchInviteUser = (username, workspace) => {
+  return fetch(`http://localhost:3000/api/v1/workspaces/add-user/${workspace}`, {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({
+      username
+    })
+  })
+    .then(res => res.json());
+};
+
 export {
   fetchMemberWorkspaces,
-  fetchCreateWorkspace
+  fetchCreateWorkspace,
+  fetchInviteUser
 };

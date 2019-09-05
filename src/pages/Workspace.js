@@ -11,6 +11,8 @@ import { getCurrentWorkspace } from '../selectors/workspaceSelectors';
 import { getUserId } from '../selectors/userSelectors';
 
 import styles from '../containers/Workspace.css';
+import InviteDialog from '../components/Workspace/InviteDialog';
+import { inviteUser } from '../actions/workspaceActions';
 
 class Workspace extends React.Component {
   static propTypes = {
@@ -24,11 +26,14 @@ class Workspace extends React.Component {
     loadHistory: PropTypes.func.isRequired,
     clearHistory: PropTypes.func.isRequired,
     receiveMessage: PropTypes.func.isRequired,
-    clearChannels: PropTypes.func.isRequired
+    clearChannels: PropTypes.func.isRequired,
+    inviteUser: PropTypes.func.isRequired
   }
 
   state = {
-    messageInput: ''
+    messageInput: '',
+    inviteDialog: false,
+    inviteInput: ''
   }
 
   socket = io('http://localhost:3000')
@@ -101,18 +106,42 @@ class Workspace extends React.Component {
       receiveMessage(msg);
     });
   }
+
+  handleOpenInvite = () => {
+    this.setState({ inviteDialog: true });
+  }
+
+  handleCloseInvite = () => {
+    this.setState({ inviteDialog: false });
+  }
+
+  handleInviteUser = () => {
+    const { inviteUser, currentWorkspace } = this.props; 
+    inviteUser(this.state.inviteInput, currentWorkspace);
+    this.setState({ inviteDialog: false });
+  }
   
   render() {
     const { messages } = this.props;
-    const { messageInput } = this.state;
+    const { messageInput, inviteDialog } = this.state;
     return (
       <section className={styles.Workspace}>
-        <ChannelList channels={this.props.channels} selectChannel={this.handleSelectChannel} />
+        <ChannelList 
+          channels={this.props.channels} 
+          selectChannel={this.handleSelectChannel} 
+          handleOpenInvite={this.handleOpenInvite}
+        />
         <Chat 
           messagesData={messages} 
           onSubmitMessage={this.handleSubmitMessage} 
           onUpdateMessageInput={this.handleUpdate}
           messageInput={messageInput}
+        />
+        <InviteDialog 
+          open={inviteDialog} 
+          handleUpdate={this.handleUpdate} 
+          handleCloseInvite={this.handleCloseInvite}
+          handleInviteUser={this.handleInviteUser}
         />
       </section>
     );
@@ -133,7 +162,8 @@ const mapDispatchToProps = dispatch => ({
   loadHistory: history => dispatch(loadHistory(history)),
   clearHistory: () => dispatch(clearHistory()),
   receiveMessage: message => dispatch(recieveMessage(message)),
-  clearChannels: () => dispatch(clearChannels())
+  clearChannels: () => dispatch(clearChannels()),
+  inviteUser: (username, workspace) => dispatch(inviteUser(username, workspace))
 });
 
 export default connect(

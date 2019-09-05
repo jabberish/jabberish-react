@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Drawer, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const ChannelList = ({ channels, selectChannel }) => {
+const ChannelList = ({ channels, selectChannel, handleOpenInvite }) => {
   
   const classes = useStyles();
   
@@ -31,7 +31,7 @@ const ChannelList = ({ channels, selectChannel }) => {
       }}
     >
       <div className={classes.toolbar} />
-
+      <Button onClick={handleOpenInvite}>Invite</Button>
       <Typography variant="h6">Channels</Typography>
       <List>
         {channels.map(channel => (
@@ -50,7 +50,8 @@ const ChannelList = ({ channels, selectChannel }) => {
 
 ChannelList.propTypes = {
   channels: PropTypes.array.isRequired,
-  selectChannel: PropTypes.func.isRequired
+  selectChannel: PropTypes.func.isRequired,
+  handleOpenInvite: PropTypes.func.isRequired
 };
 
 export default ChannelList;
