@@ -36,7 +36,7 @@ class Workspace extends React.Component {
     inviteInput: ''
   }
 
-  socket = io('http://localhost:3000')
+  socket = io('https://jabberish-api.herokuapp.com')
 
   componentDidMount() {
     const root = document.getElementById('root');
