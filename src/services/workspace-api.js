@@ -1,5 +1,5 @@
 const fetchMemberWorkspaces = () => {
-  return fetch('http://localhost:3000/api/v1/workspaces/member', {
+  return fetch('https://jabberish-api.herokuapp.com/api/v1/workspaces/member', {
     method: 'get',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include'
@@ -13,7 +13,7 @@ const fetchMemberWorkspaces = () => {
 };
 
 const fetchCreateWorkspace = (name) => {
-  return fetch('http://localhost:3000/api/v1/workspaces', {
+  return fetch('https://jabberish-api.herokuapp.com/api/v1/workspaces', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -25,7 +25,7 @@ const fetchCreateWorkspace = (name) => {
 };
 
 const fetchInviteUser = (username, workspace) => {
-  return fetch(`http://localhost:3000/api/v1/workspaces/add-user/${workspace}`, {
+  return fetch(`https://jabberish-api.herokuapp.com/api/v1/workspaces/add-user/${workspace}`, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',

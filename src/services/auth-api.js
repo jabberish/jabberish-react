@@ -1,5 +1,5 @@
 const fetchLogin = (user) => {
-  return fetch('http://localhost:3000/api/v1/auth/signin', {
+  return fetch('https://jabberish-api.herokuapp.com/api/v1/auth/signin', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -17,7 +17,7 @@ const fetchLogin = (user) => {
 };
 
 const fetchRegister = (user) => {
-  return fetch('http://localhost:3000/api/v1/auth/signup', {
+  return fetch('https://jabberish-api.herokuapp.com/api/v1/auth/signup', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -35,7 +35,7 @@ const fetchRegister = (user) => {
 };
 
 const fetchVerify = () => {
-  return fetch('http://localhost:3000/api/v1/auth/verify', {
+  return fetch('https://jabberish-api.herokuapp.com/api/v1/auth/verify', {
     mode: 'cors',
     method: 'get',
     headers: { 'Content-Type': 'application/json' },
