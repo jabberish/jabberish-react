@@ -7,7 +7,11 @@ describe('ChannelList component', () => {
     const channels = [];
     // eslint-disable-next-line no-console
     const selectChannel = () => console.log('function');
-    const wrapper = shallow(<ChannelList channels={channels} selectChannel={selectChannel} />);
+    const wrapper = shallow(<ChannelList 
+      channels={channels} 
+      selectChannel={selectChannel} 
+      handleOpenInvite={() => {}}
+    />);
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -7,6 +7,7 @@ describe('WorkspaceList component', () => {
     const wrapper = shallow(<WorkspaceList 
       workspaces={[]} 
       setCurrentWorkspace={() => {}}
+      handleOpenDialog={() => {}}
     />);
     expect(wrapper).toMatchSnapshot();
   });

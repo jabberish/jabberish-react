@@ -8,7 +8,9 @@ exports[`WorkspaceList component renders WorkspaceList 1`] = `
     justify="flex-start"
     spacing={2}
   >
-    <CreateWorkspace />
+    <CreateWorkspace
+      handleOpenDialog={[Function]}
+    />
   </WithStyles(ForwardRef(Grid))>
 </Fragment>
 `;
