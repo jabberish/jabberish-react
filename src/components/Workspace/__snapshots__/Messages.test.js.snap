@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Messages component renders Messages 1`] = `
+<WithStyles(ForwardRef(Container))
+  className="makeStyles-container-1"
+  maxWidth={false}
+>
+  <WithStyles(ForwardRef(List))
+    className="makeStyles-list-2"
+  >
+    <div
+      id="scroll-bottom"
+      style={
+        Object {
+          "clear": "both",
+          "float": "left",
+        }
+      }
+    />
+  </WithStyles(ForwardRef(List))>
+</WithStyles(ForwardRef(Container))>
+`;

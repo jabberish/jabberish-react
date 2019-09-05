@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register component renders Register 1`] = `
+<Fragment>
+  <AuthForm
+    failMessage="That username is taken. Please try another!"
+    formTitle="Register"
+    handleSubmit={[Function]}
+    handleUpdate={[Function]}
+    success={true}
+  />
+</Fragment>
+`;

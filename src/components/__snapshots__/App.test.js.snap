@@ -1,7 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component renders App 1`] = `
-<h1>
-  Hello World
-</h1>
+<BrowserRouter>
+  <Header />
+  <Switch>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Login)",
+          "type": [Function],
+        }
+      }
+      path="/Login"
+    />
+    <Route
+      component={[Function]}
+      path="/Register"
+    />
+    <Route
+      component={[Function]}
+      path="/landing"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(WithSession)",
+          "type": [Function],
+        }
+      }
+      path="/workspace"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(WithSession)",
+          "type": [Function],
+        }
+      }
+      path="/"
+    />
+  </Switch>
+</BrowserRouter>
 `;

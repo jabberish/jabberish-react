@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message component renders Message 1`] = `
+<WithStyles(ForwardRef(ListItem))
+  style={null}
+>
+  <WithStyles(ForwardRef(Typography))
+    type="body1"
+  >
+    undefined: text
+  </WithStyles(ForwardRef(Typography))>
+</WithStyles(ForwardRef(ListItem))>
+`;

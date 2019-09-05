@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChannelList component renders ChannelList 1`] = `
+<WithStyles(ForwardRef(Drawer))
+  className="makeStyles-drawer-2"
+  classes={
+    Object {
+      "paper": "makeStyles-drawerPaper-3",
+    }
+  }
+  variant="permanent"
+>
+  <div
+    className="makeStyles-toolbar-4"
+  />
+  <WithStyles(ForwardRef(Button))
+    onClick={[Function]}
+  >
+    Invite
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Channels
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(List)) />
+</WithStyles(ForwardRef(Drawer))>
+`;

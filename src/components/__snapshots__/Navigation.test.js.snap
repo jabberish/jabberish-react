@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component renders Navigation 1`] = `
+<nav
+  className="Navigation"
+>
+  <Link
+    className="Link"
+    to="/"
+  >
+    <WithStyles(ForwardRef(Button))
+      color="inherit"
+    >
+      Home
+    </WithStyles(ForwardRef(Button))>
+  </Link>
+  <Link
+    className="Link"
+    to="/register"
+  >
+    <WithStyles(ForwardRef(Button))
+      color="inherit"
+    >
+      Register
+    </WithStyles(ForwardRef(Button))>
+  </Link>
+  <Link
+    className="Link"
+    to="/login"
+  >
+    <WithStyles(ForwardRef(Button))
+      color="inherit"
+    >
+      Login
+    </WithStyles(ForwardRef(Button))>
+  </Link>
+</nav>
+`;
