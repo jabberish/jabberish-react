@@ -84,9 +84,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch() {
-    dispatch(getMemberWorkspaces());
-  },
+  fetch: () => dispatch(getMemberWorkspaces()),
   setWorkspace: (id) => dispatch(setCurrentWorkspace(id))
 });
 
