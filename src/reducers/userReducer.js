@@ -2,6 +2,9 @@ import {
   LOGIN_USER,
   LOGIN_USER_LOADING,
   LOGIN_USER_ERROR,
+  VERIFY_USER_LOADING,
+  VERIFY_USER,
+  VERIFY_USER_ERROR,
 } from '../actions/userActions';
 
 const initialState = {
@@ -25,6 +28,18 @@ export default function reducer(state = initialState, action) {
       };
     case LOGIN_USER_ERROR:
       return { ...state, loading: false, error: action.payload };
+    case VERIFY_USER_LOADING:
+      return { ...state, loading: true };
+    case VERIFY_USER:
+      return { 
+        ...state, 
+        loading: false, 
+        userId: action.payload._id, 
+        username: action.payload.username, 
+        error: null 
+      };
+    case VERIFY_USER_ERROR:
+      return { ...state, error: action.payload, loading: false };
     default:
       return state;
   }

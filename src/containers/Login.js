@@ -4,19 +4,24 @@ import AuthForm from '../components/AuthForm';
 
 import { connect } from 'react-redux';
 import { getUserId, getUserError } from '../selectors/userSelectors';
-import { loginUser } from '../actions/userActions';
+import { loginUser, verifyUser } from '../actions/userActions';
 
 class Login extends React.Component {
   static propTypes = {
     userId: PropTypes.string,
     error: PropTypes.string,
     submitLogin: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    verifyUser: PropTypes.object.isRequired
   }
   
   state = {
     username: '',
     password: ''
+  }
+
+  componentDidMount() {
+    this.props.verifyUser();
   }
 
   componentDidUpdate(prevState, prevProps) {
@@ -64,7 +69,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  submitLogin: (user) => dispatch(loginUser(user))
+  submitLogin: (user) => dispatch(loginUser(user)),
+  verifyUser: () => dispatch(verifyUser())
 });
 
 export default connect(
